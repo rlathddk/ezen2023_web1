@@ -1,0 +1,47 @@
+/* 
+    선택자 {속성명 : 값 ; 속성명 : 값}
+        선택자
+        1. *
+        2. 마크업명
+        3. .class
+        4. #id          단일
+*/
+@font-face {
+    font-family: 'TTWanjudaedunsancheB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+*{
+    /* 기본 여백 제거 */
+    padding: 0;
+    margin: 0;
+    list-style-type: none; /* 글머리 */
+    font-family: 'TTWanjudaedunsancheB';
+}
+a{
+    font-size: 19px;
+    text-decoration: none;
+    color: black;
+}
+/* 헤더 로고 이미지 */
+.navbar-brand >img{
+    width: 130px;
+}
+.top_menu{
+    display: flex;
+    justify-content: space-between;
+}
+#main_menu{
+    display: flex;
+}
+#main_menu > li {
+    margin: 0 30px 0;
+    
+}
+#login_menu {
+    display: flex;
+}
+#login_menu > li {
+    margin: 0 10px;
+}
