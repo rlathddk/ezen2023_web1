@@ -9,17 +9,25 @@ $.ajax({
         // 1. 어디에
         let login_menu = document.querySelector('#login_menu')
         // 2. 무엇을
-        let html = '';
+        let html = ``;
         if(r != ''){ // 로그인 했을 때
-            html += `<li class="nav-item">
-                         <a class="nav-link" onclick="logout()">로그아웃</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link" href="#">내정보</a>
-                     </li>
-                     <li class="nav-item">
-                         <img src="#" alt="">${r} 님
-                     </li>`;
+            $.ajax({url : '/member/login/info',
+                method : 'get', data:{id:r},
+                async : false,
+                success: (r2)=> {
+                    console.log(r2);
+                    console.log(r2.uuidFile);
+                html += `<li class="nav-item">
+                             <a class="nav-link" onclick="logout()">로그아웃</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-link" href="#">내정보</a>
+                         </li>
+                         <li class="nav-item">
+                             <img src="/img/${r2.uuidFile}">${r} 님
+                         </li>`;
+                }
+            });
         }else{ // 로그인 안했을 때
              html += `
                 <li class="nav-item">
