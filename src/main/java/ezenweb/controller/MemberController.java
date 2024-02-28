@@ -83,6 +83,14 @@ public class MemberController {
             return true;
             // 로그아웃 성공시 -> 메인페이지 또는 로그인페이지 이동
     }
+    // ============== 아이디 중복 체크 요청 =================
+    @GetMapping("/member/find/idcheck")
+    @ResponseBody
+    public boolean doGetFindIdCheck(String id){
+        System.out.println("MemberController.doGetFindIdCheck");
+        System.out.println("id = " + id);
+        return memberService.doGetFindIdCheck(id);
+    }
     // ========= 회원정보 요청
     @GetMapping("/member/login/info")
     @ResponseBody

@@ -27,6 +27,8 @@ dependencies { // 여기에 외부 라이브러리 설치 // *변경이후 오�
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+	// 5. email sender : smtp
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
 }
 
 tasks.named('test') {
