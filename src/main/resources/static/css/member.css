@@ -1,0 +1,106 @@
+.signUpForm{
+    width : 70%;
+    margin : 0 auto;
+    padding : 50px;
+    border : 1px solid #e8e8e8;
+}
+.signUpForm h1, p{
+    text-align : center;
+}
+.signUpForm p{
+    margin-bottom : 50px
+}
+.signUpForm > h3, signUpForm > p {
+    text-align : center;
+    margin-top : 10px;
+}
+.signUpForm .title {
+    margin-bottom : 10px
+}
+/* 입력상자 */
+.signUpForm input {
+    width : 100%; height:50px; padding : 10px;
+    border : 1px solid #e8e8e8; border-radius: 10px;
+}
+/* 인풋박스 */
+.signUpForm > .checkbox{
+    color: red; font-size : 14px;
+    margin : 0px 0px 25px 0px;
+    height: 20px;
+}
+/* 이메일 입력+요청 구역 */
+.signUpForm > .emailbox {
+    display : flex;
+}
+/* 버튼 */
+.signUpForm > .emailbox button {
+    width : 25%; height ="50px";
+    background-color: #C0CE3F;
+    color: black;
+    border: none;
+    border-radius :10px;
+    margin-left : 10px;
+}
+.filebtn {
+    width: 10%;
+}
+.signbtn {
+    text-align : center;
+    margin-top : 20px;
+    border : none;
+
+}
+
+.signbtn > button {
+    font-size : 18px;
+    width: 11%;
+    text-align : center;
+    border : none;
+    background : none;
+    background-color : #C0CE3F;
+    padding : 10px;
+    border-radius : 5px;
+}
+.signbtn > a {
+    font-size : 18px;
+}
+/* 인증 구역 */
+.signUpForm > .authbox{
+    display:flex;
+    margin-top : 14px;
+}
+
+/* 인증 타이머 */
+.signUpForm > .authbox > .timebox {
+    font-size : 20px; width : 30%;
+    margin-top : 9px;
+
+}
+.authreqbtn2 {
+    width : 50px;
+    background-color: #C0CE3F;
+    border-radius : 4px;
+    height : 40px;
+    margin-top : 4px;
+    margin-left : 10px;
+    border: none;
+}
+.loginForm {
+    width : 70%;
+    margin : 0 auto;
+    border : 1px solid #e8e8e8;
+    padding : 50px 30px;
+}
+.loginForm h3 {
+    margin-bottom : 30px;
+}
+.longBtn {
+    background-color: #C0CE3F;
+    border : none;
+    border-radius : 5px;
+    padding : 10px;
+
+}
+.title2 {
+    margin-top: 25px;
+}

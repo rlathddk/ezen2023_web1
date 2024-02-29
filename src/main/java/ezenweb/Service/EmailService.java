@@ -6,7 +6,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service // 빈 등록
 public class EmailService {
 
     // SMTP : 간이 우편 전송 프로토콜(메일 전송)
@@ -17,7 +17,7 @@ public class EmailService {
     // 1. java(spring) 지원하는 smtp 객체 필요 = javaMailSender
     @Autowired
     private JavaMailSender javaMailSender; // javamail 제공하는 객체
-    public void send(){
+    public void send(String toEmail , String subject, String content){
         try {
         // * 메일 내용물들을 포맷하기 위한 MIME 형식 객체
         MimeMessage message = javaMailSender.createMimeMessage();
@@ -27,11 +27,11 @@ public class EmailService {
         // 2. 메시지 보내는 사람
         mimeMessageHelper.setFrom("abc777z@naver.com"); // 관리자 이메일
         // 3. 메시지 받는 사람
-        mimeMessageHelper.setTo("abc777z@naver.com"); // 클라이언트(회원) 이메일(매개변수)
+        mimeMessageHelper.setTo(toEmail); // 클라이언트(회원) 이메일(매개변수)
         // 4. 메시지 제목
-        mimeMessageHelper.setSubject("자바에서 보내온 메시지"); // (매개변수)
+        mimeMessageHelper.setSubject(subject); // (매개변수)
         // 5. 메일 내용
-        mimeMessageHelper.setText("안녕하세요.내용입니다"); // (매개변수)
+        mimeMessageHelper.setText(content); // (매개변수)
         // 메일 전송
         javaMailSender.send(message);
         }catch (Exception e){

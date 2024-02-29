@@ -30,9 +30,6 @@ public class MemberService {
         memberDto.setUuidFile(fileName);
         boolean result = memberDao.doPostSignup(memberDto);
         // * 이메일 테스트
-        if(result){
-            emailService.send();
-        }
         return result;
     } // end
     @Autowired

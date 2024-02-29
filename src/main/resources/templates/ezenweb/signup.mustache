@@ -1,37 +1,48 @@
 {{>ezenweb/header}}
-
-    <h1>회원가입 페이지</h1>
+<div class="container">
     <form class = "signUpForm">
-        <div> 아이디 </div>
+        <h1>회원가입 페이지</h1>
+        <p>회원가입을 통해 다양한 이벤트에 참여하세요</p>
+        <div class="title"> 아이디 </div>
         <input onkeyup="idcheck()" type="text" id="id" name="id"/>
-        <div class="idcheckbox"> 유효성검사결과</div>
+        <div class="idcheckbox checkbox"> 유효성검사결과</div>
 
-        <div> 패스워드 </div>
+        <div class="title"> 패스워드 </div>
         <input onkeyup="pwcheck()" type="text" id="pw" name="pw"/>
-        <div> 패스워드 확인 </div>
+        <div class="title title2"> 패스워드 확인 </div>
         <input onkeyup="pwcheck()" type="text" id="pwconfirm" name="pwconfirm"/>
-        <div class="pwcheckbox"> 유효성검사결과</div>
+        <div class="pwcheckbox checkbox"> 유효성검사결과</div>
 
-        <div>이름</div>
+        <div class="title">이름</div>
         <input onkeyup="namecheck()" type="text" id="name" name="name"/>
-        <div class="namecheckbox"> 유효성검사결과</div>
+        <div class="namecheckbox checkbox"> 유효성검사결과</div>
 
-        <div>전화번호</div>
+        <div class="title">전화번호</div>
         <input onkeyup="phonecheck()" type="text" id="phone" name="phone"/>
-        <div  class="phonecheckbox"> 유효성검사결과</div>
+        <div  class="phonecheckbox checkbox"> 유효성검사결과</div>
 
-        <div>이메일</div>
-        <input onkeyup="emailcheck()" type="text" id="email" name="email"/>
-        <div  class="emailcheckbox"> 유효성검사결과</div>
+        <div class="title">이메일</div>
+        <div class="emailbox">
+            <input onkeyup="emailcheck()" type="text" id="email" name="email"/>
+            <button type="button" class="authreqbtn" onclick="authreq()" disabled>인증요청</button>
+        </div>
+
+        <div class="authbox">
+
+        </div>
+        <div  class="emailcheckbox checkbox"> 유효성검사결과</div>
 
         <div>프로필 사진</div>
-        <input onchange="onChangeImg(this)" type="file" id="img" name="img" accept="image/*"/> <br/>
+        <input onchange="onChangeImg(this)" type="file" id="img" class="filebtn" name="img" accept="image/*"/> <br/>
         미리보기 :
         <div><!--첨부파일 미리보기-->
             <img id="preimg" src="" alt="">
         </div>
-        <button type="button" onclick="signup()">회원가입</button>
-        <a href="/member/login">로그인</a>
+        <div class="signbtn">
+            <button type="button" onclick="signup()">회원가입</button>
+            <a href="/member/login">로그인</a>
+        </div>
     </form>
-    <script src="/js/member.js"></script>
+</div>
+<script src="/js/member.js"></script>
 {{>ezenweb/footer}}
