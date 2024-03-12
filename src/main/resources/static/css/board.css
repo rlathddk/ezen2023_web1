@@ -1,0 +1,66 @@
+button{
+
+    border : none;
+    border-radius : 10px;
+    padding : 5px;
+}
+.top_btn {
+    margin : 20px 10px 20px 0;
+}
+
+.top_btn button{
+    width : 110px;
+}
+.sh_box {
+    text-align : right;
+    margin-bottom : 20px
+}
+select {
+    padding : 3px 0;
+}
+
+.page-link {
+
+    color : #000000;
+}
+.active>.page-link, .page-link.active {
+    background-color : #C0CE3F;
+    border : 1px solid #C0CE3F
+}
+.categoryActive {
+    background-color : #C0CE3F !important;
+
+}
+.top_text {
+    font-size : 14px;
+    margin-top : 20px;
+}
+
+/* VIEW PAGE CSS*/
+.boardViewBox{
+    margin-top : 20px;
+    padding : 50px;
+}
+.boardViewBox > div{
+    padding : 15px 0px;
+    border-bottom : 1px solid #e8e8e8;
+}
+.boardViewBox > div:nth-child(1){ /*제목*/
+
+}
+.boardViewBox > div:nth-child(1) > span {
+    font-size: 25px;
+}
+.boardViewBox > div:nth-child(2){ /*기타정보*/
+    display : flex;
+    justify-content : space-between;
+}
+.boardViewBox > div:nth-child(3){ /*내용*/
+
+}
+.boardViewBox > div:nth-child(4){ /*버튼구여*/
+    font-size : 14px;
+}
+.boardViewBox > div:nth-child(4) > span > a {
+    font-size : 14px;
+}

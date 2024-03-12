@@ -203,7 +203,7 @@ function login(){
     let id = document.querySelector('#id').value; console.log(id);
     let pw = document.querySelector('#pw').value; console.log(pw);
     // 2. 객체화
-    let info = {id : id, pw : pw, };
+    let info = {id : id, pw : pw };
     console.log(info);
     // 3. 서버와 통신
     $.ajax({

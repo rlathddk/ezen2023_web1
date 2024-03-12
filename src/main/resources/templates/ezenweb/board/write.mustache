@@ -1,0 +1,16 @@
+{{>ezenweb/header}}
+<div class="container">
+    <h3>글쓰기 페이지</h3>
+    <form class="boardWriteForm">
+        카테고리 <select name="bcno" ><!--bcno가 fk로 저장되어 있기 때문에 value 번호로-->
+                    <option value="1">자유</option>
+                    <option value="2">노하우</option>
+                </select><br/>
+        제목 <input type="text" name="btitle">
+        내용 <textarea id="summernote" name="bcontent"></textarea>
+        첨부파일 <input type="file" name="uploadfile">
+        <button onclick="onWrite()" type="button">쓰기</button>
+    </form>
+</div>
+<script src="/js/board/write.js"></script>
+{{>ezenweb/footer}}

@@ -150,9 +150,6 @@ public class ArticleDao {
 }
 
 
-
-
-
 // ps = conn.prepareStatement(sql); // 2.
 // * insert 된 auto_increment 자동번호 식별키 호출하는 방법
 // 1.  ps = conn.prepareStatement( sql , Statement.RETURN_GENERATED_KEYS ); SQL 기재 할때 자동으로 생성된 키 호출 선언 Statement.RETURN_GENERATED_KEYS
