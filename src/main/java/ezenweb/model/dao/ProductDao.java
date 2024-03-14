@@ -33,7 +33,7 @@ public class ProductDao extends Dao {
                             ps = conn.prepareStatement( subSql );
                             ps.setString( 1 , pimg );       ps.setInt( 2 , rs.getInt( 1 ) );
                             ps.executeUpdate();
-                        }catch (Exception e ){   System.out.println("e = " + e);  }
+                        }catch (Exception e ){   System.out.println("postProductRegister e  = " + e);  }
                     });
                     return true;
                 }
@@ -99,7 +99,7 @@ public class ProductDao extends Dao {
             ps.setInt( 1 , mno );    ps.setInt( 2 , pno );
             rs = ps.executeQuery();
             if( rs.next() ) return true;
-        }catch (Exception e ){ System.out.println("e = " + e);  }
+        }catch (Exception e ){ System.out.println("getProductList e = " + e);  }
         return false;
     }
     //5 해당 제품의 찜하기 취소/삭제 // 언제실행: 로그인했고 찜하기버튼 클릭시  , 매개변수 : pno , 리턴 :  boolean(취소 성공/실패)
@@ -110,7 +110,7 @@ public class ProductDao extends Dao {
             ps.setInt( 1 , mno );    ps.setInt( 2 , pno );
             int count = ps.executeUpdate();
             if( count == 1 ) return true;
-        }catch (Exception e ){ System.out.println("e = " + e);  }
+        }catch (Exception e ){ System.out.println("getPlikeDelete e = " + e);  }
         return false;
     }
 

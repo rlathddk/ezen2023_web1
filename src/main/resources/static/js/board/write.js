@@ -26,8 +26,9 @@ function onWrite(){
         url : "/board/write.do",
         method: "post",
         data : boardWriteFormData,
-        contentType : false,
-        processData : false,
+        contentType : false, //
+        processData : false, // multipart/form-data로 이미지를 서버로 전송하려고 할 때  500 에러가 발생하면서 해결법을 찾을 때 나온 속성들 (contentType, processData)
+
         success : (r)=> {
             if(r==0){
                 alert('글쓰기 실패 : DB오류');
