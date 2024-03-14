@@ -1,10 +1,12 @@
 
 // 클라이언트(브라우저) 위치 가져오기
-    // 1. navigator.geolocation.getCurrentPosition() : 현재 위치 정보 호출( JS )
+    // 1. navigator.geolocation.getCurrentPosition() : 현재 위치 정보 호출( JS ) 함수
 navigator.geolocation.getCurrentPosition( ( myLocation ) =>{
+
     console.log( myLocation );
-    console.log( myLocation.coords.latitude );  // 현재 위치
-    console.log( myLocation.coords.longitude );  // 현재 위치
+    console.log( myLocation.coords );
+    console.log( myLocation.coords.latitude );  // 현재 위치 위도
+    console.log( myLocation.coords.longitude );  // 현재 위치 경도
 
     // 카카오 지도 실행
     kakaoMapView( myLocation.coords.latitude  , myLocation.coords.longitude  );
@@ -12,6 +14,7 @@ navigator.geolocation.getCurrentPosition( ( myLocation ) =>{
 })
 
 function kakaoMapView( latitude , longitude ){
+
     // 1. 지도 객체
     var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
         center : new kakao.maps.LatLng( latitude, longitude ), // 지도의 중심좌표
@@ -66,15 +69,48 @@ function kakaoMapView( latitude , longitude ){
                   document.querySelector('.offcanvas-body .carousel-inner').innerHTML = carouselHTML
                     // 3. 제품 가격/내용들
                     // 4. 버튼( 찜하기 , 채팅하기 )
+                    plikeView( data.pno );
             });
-
             return marker; // 2. 클러스터 저장하기 위해 반복문 밖으로 생성된 마커 반환.
         });
-
         // 3. 클러스터에 마커들(markerList  )
         clusterer.addMarkers(markerList);
     });
+}; //
+// 2. 주소도 동일하고 매개변수도 동일할때
+function plikeWrite( pno , method ){    console.log( pno ); console.log( method );
+    let result = false;
+    $.ajax({
+        url : "/product/plike.do" ,
+        method : method ,
+        async : false ,
+        data: { 'pno' : pno },
+        success : function(r) { console.log( r );
+            result = r;
+        }
+    });
+    if( method != 'get' ) plikeView( pno ); // 찜하기 변화 가 있을때
+    return result;
 }
+// 3. 찜하기 상태 출력 함수 // 1., 사이드바 열릴때  2. 찜하기 변화가 있을때.
+function plikeView( pno ){
+       // *현재 로그인 했고 찜하기 상태 여부 따라 css 변화
+      let result = plikeWrite(  pno , 'get'  );
+      if( result  ){ // 로그인 했고 이미 찜하기 상태.
+           document.querySelector('.offcanvas-body .sideBarBtnBox').innerHTML = `
+                <button onclick="plikeWrite( ${ pno } ,  'delete' )" type="button"> 찜하기 ♥</button>
+                <button type="button"> 채팅하기 </button> `
+      }else{ // 로그인 안했거나 찜하기 안한 상태.
+         document.querySelector('.offcanvas-body .sideBarBtnBox').innerHTML = `
+              <button onclick="plikeWrite( ${ pno } ,  'post' )" type="button"> 찜하기 ♡ </button>
+              <button type="button"> 채팅하기 </button> `
+      }
+}
+
+//plikeWrite( 3 , 'get' );
+//plikeWrite( 3 , 'post' );
+//plikeWrite( 3 , 'delete' );
+
 /*
     AJAX
         $.ajax({  url : "" , method : "" ,  success : (r)=> {}   })
